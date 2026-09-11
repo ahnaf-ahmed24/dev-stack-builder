@@ -30,7 +30,7 @@ const Hero = () => {
                 </div>
 
                 {/* Right Side  */}
-                <div className='hidden md:flex justify-center'>
+                <div className=' md:flex justify-center'>
                     <img
                         src={bannerImg}
                         alt='Dev Stack Banner'
