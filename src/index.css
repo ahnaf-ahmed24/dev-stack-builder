@@ -1,2 +1,23 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+.brand-gradient-text {
+  background-image: linear-gradient(135deg, #FF512F 0%, #F09819 50%, #E100FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-gradient-bg {
+  background-image: linear-gradient(135deg, #FF512F 0%, #F09819 50%, #E100FF 100%);
+  color: #ffffff;
+}
+
+/* Selected Disabled Card Border */
+.brand-card-border-disabled {
+  border-color: #f09819;
+  box-shadow: 0 0 10px rgba(240, 152, 25, 0.2);
+}
