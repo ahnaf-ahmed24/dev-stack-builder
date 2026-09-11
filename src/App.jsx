@@ -64,9 +64,9 @@ function App() {
           {loadging ? (
             <LoadingSpinner/>
           ) :(
-            <div>
+            <div className='flex flex-col lg:grid lg:grid-cols-4 gap-8'>
               {/* Tech Card  */}
-              <div>
+              <div className='lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6'>
                 {technologies.map((tech) =>{
                   const isAdded = selectedtack.some((item) =>
                   item.it === tech.id);
@@ -82,7 +82,7 @@ function App() {
               </div>
               {/* Your Stack  */}
               <div>
-
+                <YourStack/>
               </div>
             </div>
           )}
