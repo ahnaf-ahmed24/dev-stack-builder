@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import LoadingSpinner from './components/LoadingSpinner'
 import TechCard from './components/TechCard'
 import YourStack from './components/YourStack'
@@ -33,7 +33,7 @@ function App() {
 
     if (isExist) {
       toast.warning(`${tech.name} is already in your stack`, {
-        position: 'bottom-right',
+        position: 'top-right',
         autoClose: 25000.
       });
       return;
@@ -41,7 +41,7 @@ function App() {
 
     setSelectedStack([...selectedStack, tech]);
     toast.success(`Added ${tech.name} to your stack`, {
-      position: 'bottom-right',
+      position: 'top-right',
       autoClose: 2500,
     })
   };
@@ -55,7 +55,7 @@ function App() {
 
     if (itemToRemove) {
       toast.info(`Remove ${itemToRemove.name} from your stack`, {
-        position: 'bottom-right',
+        position: 'top-right',
         autoClose: 2500,
       });
     }
@@ -121,6 +121,8 @@ function App() {
           )}
         </main>
       </div>
+
+      <ToastContainer theme="dark"/>
     </div>
   )
 }
