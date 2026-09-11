@@ -4,12 +4,13 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import { toast } from 'react-toastify'
 import LoadingSpinner from './components/LoadingSpinner'
+import TechCard from './components/TechCard'
 
 
 function App() {
-  const [technologies, setTechnologies] = useState([])
-  const [loadging, setLoading] = useState([])
-
+  const [technologies, setTechnologies] = useState([]);
+  const [loadging, setLoading] = useState([]);
+  const [selectedStack, setSelectedStack] = useState([]);
   // JSON Data Load
    useEffect(()=>{
     fetch('/public/data.json')
@@ -22,7 +23,28 @@ function App() {
       toast.error('Failed to load technologies data.')
       setLoading(false);
     })
-   })
+   }, []);
+
+   //Add in Stack
+   
+   const handelAddToAtack = (tech) =>{
+    const isExist = selectedStack.some((item) => item.id === tech.id);
+
+      if(isExist) {
+        toast.warning(`${tech.name} is already in your stack`,{
+          position:'bottom-right',
+          autoClose: 25000.
+        });
+        return;
+      }
+
+      setSelectedStack([...selectedStack, tech]);
+      toast.success(`Added ${tech.name} to your stack`, {
+        position: 'bottom-right',
+        autoClose: 2500,
+      })
+
+   };
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans flex flex-col justify-between">
@@ -45,7 +67,18 @@ function App() {
             <div>
               {/* Tech Card  */}
               <div>
-
+                {technologies.map((tech) =>{
+                  const isAdded = selectedtack.some((item) =>
+                  item.it === tech.id);
+                  return(
+                    <TechCard
+                      key = {tech.id}
+                      tech = {tech}
+                      onAdd = {handelAddToAtack}
+                      isAdded = {isAdded}
+                    />
+                  )
+                })}
               </div>
               {/* Your Stack  */}
               <div>
