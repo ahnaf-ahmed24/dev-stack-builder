@@ -1,12 +1,14 @@
-import Navber from "./components/Navbar.jsx"
 import './App.css'
+import Hero from './components/hero'
+import Navbar from './components/Navbar'
 
 function App() {
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans flex flex-col justify-between">
       <div>
-        <Navber />
+        <Navbar/>
+        <Hero/>
       </div>
     </div>
   )
