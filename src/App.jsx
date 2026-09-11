@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import LoadingSpinner from './components/LoadingSpinner'
 import TechCard from './components/TechCard'
 import YourStack from './components/YourStack'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -121,7 +122,7 @@ function App() {
           )}
         </main>
       </div>
-
+          <Footer/>
       <ToastContainer theme="dark"/>
     </div>
   )
